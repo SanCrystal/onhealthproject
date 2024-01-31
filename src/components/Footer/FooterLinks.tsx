@@ -11,7 +11,7 @@ export default function FooterLinks() {
 					<h5 className="text-[#3E3838]/75">Product</h5>
 					<ul className="flex flex-col gap-3 top-4 relative">
 						{ProductData.map((item, index) => (
-							<li key={index}>
+							<li key={index} className="list-none">
 								<Link href={item.link}>{item.title}</Link>
 							</li>
 						))}
@@ -21,7 +21,7 @@ export default function FooterLinks() {
 					<h5 className="text-[#3E3838]/75">Platform</h5>
 					<ul className="flex flex-col gap-3 top-4 relative">
 						{PlatformData.map((item, index) => (
-							<li key={index}>
+							<li key={index} className="list-none">
 								<Link href={item.link}>{item.title}</Link>
 							</li>
 						))}
@@ -31,7 +31,7 @@ export default function FooterLinks() {
 					<h5 className="text-[#3E3838]/75">Resources</h5>
 					<ul className="flex flex-col gap-3 top-4 relative">
 						{ResourceData.map((item, index) => (
-							<li key={index} className="flex relative items-center">
+							<li key={index} className="flex relative items-center list-none">
 								<Link href={item.link}>{item.title}</Link>
 								{Boolean(item.tag) && (
 									<span className="absolute -right-14 px-2 py-1 rounded-sm bg-[#B1FFB8] text-wrap w-fit text-secondary font-sans font-bold text-[0.55rem]">
@@ -48,10 +48,10 @@ export default function FooterLinks() {
 			</div>
 			<div className="flex w-full justify-between p-7 text-[text-[#3E3838] font-semibold text-sm">
 				<ul className="flex gap-5">
-					<li>
+					<li className="list-none">
 						<Link href="#">Privacy Policy</Link>
 					</li>
-					<li>
+					<li className="list-none">
 						<Link href="#">Terms & Conditions</Link>
 					</li>
 				</ul>
