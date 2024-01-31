@@ -1,33 +1,128 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+ 
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 126, 46%, 45%, 1;
+;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 159, 61%, 19%, 1;
+;
+    --secondary-foreground: 218, 18%, 34%, 1;
+;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142.1 76.2% 36.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 142.1 70.6% 45.3%;
+    --primary-foreground: 144.9 80.4% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142.4 71.8% 29.2%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer utilities{
+  .clip-right {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 83% 100%, 0 25%);
+
   }
+  .clip-left {
+   clip-path: polygon(48% 100%, 100% 39%, 100% 100%, 83% 100%, 49% 100%);
+  }
+  .clip-platform-right{
+    clip-path: polygon(100% 38%, 0% 100%, 100% 100%);
+  }
+  .clip-platform-left{
+    clip-path: polygon(0 62%, 0% 100%, 100% 100%);
+  }
+    .btn-white {
+    @apply bg-white px-4 py-2 rounded-full;
+  }
+  .btn-light-green {
+        @apply bg-[#8DDE4430] px-4 py-2 rounded-full;
+  }
+  .btn-green {
+    @apply bg-[#8DDE44] px-4 py-2 rounded-full;
+  }
+  .footclipleft{
+    clip-path: polygon(0 18%, 0% 100%, 100% 100%);
+  }
+  .footclipright{
+    clip-path: polygon(100% 52%, 54% 100%, 100% 100%);
+  }
+
+ol li{
+  list-style: decimal;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+  }
+ul li{
+  list-style: disc;
+  }
+  ol ul li{
+    font-weight: 400;
+    margin-top: 0.6rem;
+  }
+  .text-word h4,.text-word h5{
+    font-weight: 700;
+    line-height: 24px;
+  }
+}
+/* adjust pagination position */
+.swiper-wrapper{
+    padding-bottom: 65px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; 
+    /* gap: 2rem !important; */
+  }
+/* change pagination background */
+.swiper-pagination-bullet {
+    width: 6rem !important;
+    border-radius: 15px !important; 
+    background: #8DDE44 !important;
 }
