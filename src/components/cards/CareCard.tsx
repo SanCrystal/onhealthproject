@@ -50,7 +50,8 @@ export default function CareCard({
 	return (
 		<div
 			className={cn(
-				`bg-[${bgColor}] relative h-[622px] w-[400px] overflow-hidden rounded-[40px]`,
+				`${index == 0 ? "bg-[#E9FFEB]" : ""} ${index == 1 ? "bg-[#F1FFE4]":""}
+				 relative h-[622px] w-[400px] overflow-hidden rounded-[40px]`,
 				cls
 			)}
 		>
