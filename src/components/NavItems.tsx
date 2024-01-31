@@ -13,10 +13,10 @@ export default function NavItems() {
 				<ul className="flex relative">
 					<li
 						onClick={() => setShowProduct((prev) => !prev)}
-						className="flex gap-2 cursor-pointer items-center"
+						className="flex gap-2 cursor-pointer items-center list-none"
 					>
 						<Icons.product className="text-secondary" />
-						<span className='text-sm'>Product</span>
+						<span className="text-sm">Product</span>
 						<Icons.downArrow
 							className={`${
 								showProduct ? "rotate-180" : ""
@@ -26,15 +26,15 @@ export default function NavItems() {
 					<li
 						className={`${
 							showProduct ? "opacity-100" : "opacity-0 "
-						} bg-muted absolute left-0 top-10 transition-all duration-500 flex p-2 fade-in-75 `}
+						} bg-muted absolute left-0 top-10 transition-all duration-500 flex p-2 fade-in-75 list-none`}
 					>
 						<ul className="flex flex-col ">
 							{PRODUCTS_CATEGORY.map((item, index) => (
 								<li
-									className="bg-slate-150 hover:bg-slate-200 px-3 py-2 rounded-full text-sm"
+									className="bg-slate-150 hover:bg-slate-200 px-3 py-2 rounded-full text-sm list-none"
 									key={index}
 								>
-									<Link href={`/${item}`}>{item}</Link>
+									<Link href={`#${item}`}>{item}</Link>
 								</li>
 							))}
 						</ul>
@@ -59,23 +59,26 @@ export default function NavItems() {
 			<ul className="nav-links flex gap-1 ml-8">
 				{NAV_LINKS.map((items, index) => (
 					<li
-						className="bg-slate-150 hover:bg-slate-200 px-3 py-2 rounded-full text-sm"
-						key={index}
+						className={`bg-slate-150 hover:bg-slate-200 px-3 py-2 rounded-full text-sm list-none transition-all duration-300 ${
+							activeIndex==index ? "bg-slate-200" : ""
+						}`}
+						key={index} 
+						onClick={()=>setActiveIndex(index)}
 					>
-						<Link href={items.href}>{items.label}</Link>
+						<Link href={`#${items.href}`}>{items.label}</Link>
 					</li>
 				))}
 			</ul>
 			<ul className="call-to-action flex ml-8 gap-2">
 				{CALL_TO_ACTION.map((items, index) => (
-
-						<Link key={index}
-							className={`${items.variant} text-sm whitespace-nowrap flex items-center gap-2`}
-							href={items.href}
-						>
-							{items.label == "Call us" && <Icons.call />}
-							{items.label}
-						</Link>
+					<Link
+						key={index}
+						className={`${items.variant} text-sm whitespace-nowrap flex items-center gap-2`}
+						href={`#${items.href}`}
+					>
+						{items.label == "Call us" && <Icons.call />}
+						{items.label}
+					</Link>
 				))}
 			</ul>
 		</div>
